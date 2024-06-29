@@ -1,0 +1,804 @@
+
+/*body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    height: 100%;
+    background-color: #f5f5f5; /* Set a light background color 
+  }
+  
+  .container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+  
+  .header {
+    margin-left: 250px;
+    position: fixed;
+    z-index: 1;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(90deg, #25d873 1.18%, #279151 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow 
+    transition: margin-left 0.5s;
+  }
+  
+  .header p {
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+    opacity: 0.9;
+    transition: color 0.3s; /* Add color transition on hover 
+  }
+  
+  .header:hover p {
+    color: #f1f1f1;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, #279151 1.18%, #25d873 100%);
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: width 0.5s;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); /* Add box shadow to the sidebar 
+  }
+  
+  .sidenav a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: background-color 0.3s, color 0.3s; /* Add transition on hover 
+  }
+  
+  .sidenav a:hover {
+    background-color: #4CAF50;
+    color: #333;
+  }
+  
+  .sidenav.collapsed {
+    width: 60px;
+  }
+  
+  .sidenav.collapsed a {
+    padding: 20px 10px;
+    text-align: center;
+  }
+  
+  .nav-link {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .nav-link:hover {
+    background-color: #4CAF50;
+    color: #333;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+    color: #333;
+  }
+  
+  .content {
+    position: relative;
+    top: 120px;
+    left: 250px;
+    padding: 30px;
+    width: auto;
+    max-width: 79%;
+    height: auto;
+    word-wrap: break-word;
+    transition: margin-left 0.5s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow 
+    background-color: #fff; /* Set content background color 
+  }
+  
+  /* Add hover effect on content 
+  .content:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Rest of your CSS remains unchanged 
+  
+  
+  table {
+    width: 100%; /* Set the table to take full width 
+    border-collapse: collapse; /* Collapse table borders 
+    margin-bottom: 20px; /* Add margin to the bottom of the table 
+  }
+  
+  th, td {
+    border: 1px solid #ddd; /* Add border to table cells 
+    padding: 8px; /* Add padding to cells 
+    text-align: left; /* Align text to the left 
+  }
+  
+  th {
+    background-color: #f2f2f2; 
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9; 
+  }
+  
+ 
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  
+  .alter {
+    position: fixed;
+    width: 100px;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background: linear-gradient(90deg, #279151 1.18%, #25d873 100%);
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  
+  .alter:hover {
+    border-color: #64fffa;
+  }
+  
+  .alter:focus,
+  .alter:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative; /* Ensure relative positioning for absolute child 
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    z-index: 1000; /* Set a higher z-index value 
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  /* Style for the input field 
+  .input-alter {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+  
+  /* Add some hover and focus styles for better user experience 
+  .input-alter:hover,
+  .input-alter:focus {
+    border-color: #007bff; /* Change the border color on hover/focus 
+  }
+  
+  /* Style for the select element 
+  .select-alter {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+  
+  /* Style for the submit button 
+  .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for the form container 
+  .add-user-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  /* Style for form labels 
+  .add-user-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  /* Style for form input fields 
+  .add-user-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Style for date input 
+  .add-user-form input[type="date"] {
+    padding: 10px;
+  }
+  
+  /* Style for select input 
+  .add-user-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+ 
+  .add-user-form button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+
+  .add-user-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .add-user-form button.generate-password {
+    background-color: #2196f3;
+  }
+  
+
+  .add-user-form button.generate-password:hover {
+    background-color: #0d8bf2;
+  }
+  
+
+  .send-notification-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .send-notification-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .send-notification-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .send-notification-container input,
+  .send-notification-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .send-notification-container button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .send-notification-container button:hover {
+    background-color: #45a049;
+  }
+  
+
+
+
+
+
+
+  :root {
+  --primary-color: #FF7E67; /* Coral 
+  --secondary-color: #FFD700; /* Gold 
+  --text-color: #000000;
+  --background-color: #ECF0F1; /* Light Gray 
+  --hover-color: #FFA07A; /* Light Salmon for Hover Effects 
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  height: 100%;
+  background-color: var(--background-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  overflow: hidden;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 50px;
+}
+
+.navbar h2 {
+  color: #fff;
+  font-size: 24px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+
+
+.navbar h2::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform-origin: bottom right;
+  transform: scale(0, 1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar h2:hover::before {
+  transform-origin: bottom left;
+  transform: scale(1, 1);
+}
+
+
+.navbar a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: var(--hover-color);
+}
+
+.navbar a.active {
+  color: var(--hover-color);
+  background-color: #9d1616;
+}
+
+.content {
+  position: relative;
+  border: 1px solid var(--text-color);
+  padding: 30px;
+  margin: 5px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  word-wrap: break-word;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.alter {
+  position: relative;
+  width: 120px;
+  padding: 14px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  font-family: inherit;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  cursor: pointer;
+  transition: background 0.25s, transform 0.3s ease-in-out;
+}
+
+.alter:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05); /* Add a subtle scaling effect on hover 
+}
+
+.alter:focus,
+.alter:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-color);
+  z-index: 1000;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.input-alter {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.input-alter:hover,
+.input-alter:focus {
+  border-color: var(--hover-color);
+}
+
+.select-alter {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.select-alter:hover,
+.select-alter:focus {
+  border-color: var(--hover-color);
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s, transform 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05); /* Add a subtle scaling effect on hover 
+}
+
+.add-user-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.add-user-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-color);
+  padding: 5px;
+}
+
+.add-user-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.add-user-form input[type="date"] {
+  padding: 12px;
+}
+
+.add-user-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.add-user-form button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s, transform 0.3s ease-in-out;
+}
+
+.add-user-form button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05); /* Add a subtle scaling effect on hover 
+}
+
+.add-user-form button.generate-password {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.add-user-form button.generate-password:hover {
+  background-color: var(--secondary-hover-color); /* Use the secondary hover color for gradient buttons 
+}
+
+
+.send-notification-container h2 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.send-notification-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.send-notification-container input,
+.send-notification-container textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.send-notification-container button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+.send-notification-container button:hover {
+  background-color: var(--hover-color);
+}
+  
+
+
+.add-admin-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+ Add this CSS rule to target the form inputs inside .add-admin-form 
+.add-admin-form input[type="text"],
+.add-admin-form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.add-admin-form .form-submit {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.add-admin-form .form-submit:hover {
+  background-color: var(--hover-color);
+}
+  
+.send-notification-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.send-notification-container h2 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.send-notification-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.send-notification-container input,
+.send-notification-container textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.send-notification-container button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+.send-notification-container button:hover {
+  background-color: var(--hover-color);
+}*/

@@ -1,0 +1,506 @@
+:root {
+  --primary-color: #3498db; /* Blue */
+  --secondary-color: #2ecc71; /* Emerald */
+  --text-color: #2c3e50; /* Dark Gray */
+  --background-color: #ecf0f1; /* Light Gray */
+  --hover-color: #e74c3c; /* Alizarin for Hover Effects */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  height: 100%;
+  background-color: var(--background-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  overflow: hidden;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 50px;
+}
+
+.navbar h2 {
+  color: #fff;
+  font-size: 24px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+
+/* Add an exciting underline effect on hover */
+.navbar h2::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform-origin: bottom right;
+  transform: scale(0, 1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar h2:hover::before {
+  transform-origin: bottom left;
+  transform: scale(1, 1);
+}
+
+.navbar a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: var(--hover-color);
+}
+
+.navbar a.active {
+  color: var(--hover-color);
+  background-color: #34495e;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 8px;
+  border: .5px solid var(--text-color);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.login-form h2 {
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-submit {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  color: #f1c40f; /* Yellow hover color */
+}
+
+.content {
+  position: relative;
+  border: 1px solid var(--text-color);
+  padding: 30px;
+  margin: 5px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  word-wrap: break-word;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.alter {
+  position: relative;
+  width: 120px;
+  padding: 14px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  font-family: inherit;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  cursor: pointer;
+  transition: background 0.25s, transform 0.3s ease-in-out;
+}
+
+.alter:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05); /* Add a subtle scaling effect on hover */
+}
+
+.alter:focus,
+.alter:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-color);
+  z-index: 1000;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.input-alter {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.input-alter:hover,
+.input-alter:focus {
+  border-color: var(--hover-color);
+}
+
+.select-alter {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.select-alter:hover,
+.select-alter:focus {
+  border-color: var(--hover-color);
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s, transform 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05); /* Add a subtle scaling effect on hover */
+}
+
+.add-user-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.add-user-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-color);
+  padding: 5px;
+}
+
+.add-user-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.add-user-form input[type="date"] {
+  padding: 12px;
+}
+
+.add-user-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.add-user-form button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s, transform 0.3s ease-in-out;
+}
+
+.add-user-form button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05); /* Add a subtle scaling effect on hover */
+}
+
+.add-user-form button.generate-password {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.add-user-form button.generate-password:hover {
+  background-color: var(--secondary-hover-color); /* Use the secondary hover color for gradient buttons */
+}
+
+
+
+/* Manage.css */
+.manage-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+h2 {
+  color: #333;
+}
+
+.time-filter {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color:  var(--hover-color);
+}
+
+.presence-info {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.employee-list {
+  list-style: none;
+  padding: 0;
+}
+
+.employee-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Footer.css */
+.footer {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: auto; /* Ensures the footer is at the bottom */
+}
+
+.footer p {
+  margin: 0.5rem 0;
+}
+
+.footer .social-icons {
+  margin: 0.5rem 0;
+}
+
+.footer .social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+  color: var(--hover-color);
+}
+
+.contact-us, .about-us {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.contact-us h2, .about-us h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-us p, .about-us p {
+  color: #666;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.about-us {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 10px;
+  }
+}
